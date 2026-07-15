@@ -1,0 +1,173 @@
+================================================================================
+This is a README file of ann.py 
+================================================================================
+
+DESCRIPTION
+
+ann.py is a Python code with a purpose of creating Artificial Neural Network 
+(ANN)model. The ANN is used to predict outputs based on known input. The model 
+used a Feed-Forward Neural Network type and a Back-Propagating (Multi-Layered 
+Perceptron (MLP)) algorithm. The usage of this is knowing the ANN Architecture, 
+the Model Loss of training and validation based on Epoch, the weight of nodes, 
+and the biases. The generated model is evaluated based on Root Mean Squared 
+Error (RMSE), relative error, squared error, and Coefficient of Determination 
+(R^2) in respect to the predicted and actual testing data.
+
+Data suitable for this are:
+* 2 (two) files of training data and testing data already divided
+  For splitting a dataset, see splitter.py
+* Files with comma separated value (.csv) or Ms Excel 2003-365 (.xlsx) extension
+* Table or matrix data with regular rows and columns of uniform size
+* Table with 1 line of header and then lines (or rows) of data
+* Data with numerical values
+
+PRE-REQUISITES
+
+The code has been tested on numerous devices ranging in operating system, 
+environment, and parameter. Before using the code, user have to install 
+pre-requisite libraries: pandas, openpyxl, pydot, scikit-learn, tensorflow, 
+numpy, matplotlib, tabulate, and colorama.
+
+To install these libraries at once, execute the command on 
+Windows Command Prompt (cmd) or Linux / MacOS Terminal :
+
+    > pip install pandas openpyxl pydot scikit-learn tensorflow numpy matplotlib tabulate colorama
+
+and for more info, visit:
+https://pandas.pydata.org/ 
+https://openpyxl.readthedocs.io/ 
+https://pypi.org/project/pydot/
+https://scikit-learn.org/stable/
+https://www.tensorflow.org/
+https://numpy.org/
+https://matplotlib.org/
+https://pypi.org/project/tabulate/
+https://pypi.org/project/colorama/
+
+USAGE
+To use the code, simply run ann.py with cmd or terminal
+with both the .xlsx or .csv file in the same directory as the .py file:
+
+    > python ann.py
+
+The program will start and looks something like this:
+
+       ann.py   
+      \         
+     --o--o-->  
+      /         
+    
+    Python Program for for Artificial Neural Network Modelling
+    Enter the csv or xlsx file for Data Training : 
+    Enter the csv or xlsx file for Data Testing  : 
+
+and enter the file name and extension in each entry, 
+e.g. data_training.xlsx and data_testing.xlsx  or 
+     data_training.csv and data_testing.csv
+Now remember that the training data and testing data should have the same 
+numbers and descriptions of columns, otherwise it the code will not work.
+
+For dataset example, see the provided files:
+data_training.xlsx and data_testing.xlsx
+
+Next, the program will display the first column of your datasets, which is the 
+header of your input and output data. It should looks something like this:
+
+    Loading data_training.xlsx and data_testing.xlsx.
+    
+    +-----------------+-------+
+    |   Column Name   | Index |
+    +-----------------+-------+
+    |     No. ..      |   1   |
+    |  H2O Molar ..   |   2   |
+    |  SO2 Molar ..   |   3   |
+    |  I2 Molar  ..   |   4   |
+    |  H2 Produc ..   |   5   |
+    |  Cycle Eff ..   |   6   |
+    |  He Temper ..   |   7   |
+    +-----------------+-------+
+
+The program ask you to input the indexes of columns that you want to set 
+as input and output.
+
+    Please select the INPUT column Index(s) (separated with comma)             : 
+
+The user should input the number of Index of the corresponding Column Name. 
+For example, if you want to set Columns H2O Molar .., SO2 Molar .., and 
+I2 Molar  .. as the INPUT, you should put 2,3,4 in the input.
+
+    Please select the OUTPUT column Index(s) (separated with comma)            : 
+
+The same goes for the next bit. For example, if you want to set Columns 
+H2 Produc .. and Cycle Eff .. as the OUTPUT, you should put 5,6 in the input.
+
+The program then ask you to input several ANN parameters. First, the user is 
+asked to enter the number of hidden layers. 
+
+    Please enter the number of hidden layers (1 ~ ∞)                           : 
+
+The next is the number of uniform neuron per hidden layer. 
+
+    Please enter the number of uniform neurons per hidden layer (1 ~ ∞)        : 
+
+The term "uniform" in this context means that every hidden layer will have the 
+same number of neurons. For a customized number of neurons per hidden layer the 
+user can input custom in the input like so:
+
+    Please enter the number of uniform neurons per hidden layer (1 ~ ∞)        : custom
+
+If that is the case, then the program will ask the number of neurons in each of 
+the hidden layers, separated with comma, like in the input and ouput.
+
+    Please enter the number of neurons per hidden layer (separated with comma) :
+
+Remember that this entry must match the number of hidden layers in the previous 
+entry. Suppose you entered 3 as a value for hidden layers and you entered custom
+as number of neurons, then you can enter a,b,c where the a, b, and c are the 
+number of neurons in each of the hidden layer, e.g. 5,11,4 (or any of the 
+possitive integer you like).
+
+The last one is the number of training cycles.
+
+    Please enter the number of training cycles (1 ~ ∞)                         : 
+
+The range of these inputs are 1 through ∞ or possitive integer value. 
+After that, the program reiterates user's input
+
+The program will train, test, and evaluate the neural network model. The epochs 
+and loss value of training, weights and biases of neurons, the evaluated RMSE, 
+relative error, and squared error, as well as the Coefficient of Determinations 
+(R^2) of each output and overall can be seen in the terminal. 
+
+The ANN model implemented in this program uses the ReLU activation function. 
+It will print out the equations of the predicted output with ReLU function 
+f(z) = max(0,z). The ReLU function works on MATLAB code, spreadsheet 
+applications (Ms.Excel, LibreOffice Calc, OpenOffice, etc.), and many 
+other mathematical inqueries.
+
+The program then shows the ANN Architecture diagram, the Model Loss graph, the 
+Error Histogram, and the Training States graph. The Actual vs Predicted Value 
+graph along with their R^2 value, are shown, with the number depends on the 
+output specified by user. These graphs are shown in a separate matplotlib 
+window and saved to the directory as several .png files, ready for publications 
+or data visualization purposes.
+
+The model from ANN training is also saved as ann_model.keras. This .keras file 
+can be further reviewed with scikit-learn, tensorflow, and keras libraries.
+
+The basic outputs from this ANN Modelling is then exported to ann.out file. The 
+ann.out is just a text file containing ANN parameters, results, and evaluations.
+If user experienced any formatting difficulty, the user can just highlight the 
+output from the cmd or terminal and copy-paste it to a blank text file. That 
+way, the user can assess the step-by-step of ANN more comprehensively.
+
+Background:
+This is by no means a novel Python code for modelling artificial neural network.
+Author is sure that there are dedicated library or more advanced code out there 
+for this purpose. It started out as a research capacity on Neural Network and 
+it just make sense to implement the coding knowledge. The Author hope that this 
+would help. 
+
+================================================================================
+GNU General Public License 2.0 (Soon) Proprietary
+-fn
