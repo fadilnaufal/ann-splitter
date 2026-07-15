@@ -1,0 +1,73 @@
+================================================================================
+This is a README file of splitter.py 
+================================================================================
+
+splitter.py is a Python code with a purpose of splitting a rows of table into 2,
+creating 2 new files of Training Data and Testing Data to be used in
+data prediction using Neural Network.
+
+Data suitable for this are:
+* Files with comma separated value (.csv) or Ms Excel 2003-365 (.xlsx) extension
+* Table or matrix data with regular rows and columns of uniform size
+* Table with 1 line of header and then lines (or rows) of data
+* Data with numerical or categorical values
+
+Pre-Requisites
+The code has been tested on numerous devices ranging in operating system, 
+environment, and parameter. Before using the code, user have to install 
+pre-requisite libraries: pandas, openpyxl, argparse, and colorama.
+
+To install these libraries at once, execute the command on 
+Windows Command Prompt (cmd) or Linux / MacOS Terminal :
+
+    > pip install pandas openpyxl argparse colorama
+
+and for more info, visit:
+https://pandas.pydata.org/ 
+https://openpyxl.readthedocs.io/ 
+https://pypi.org/project/argparse/
+https://pypi.org/project/colorama/
+
+To use the code, simply run splitter.py with cmd or terminal
+with the .xlsx or .csv file in the same directory as the .py file:
+
+    > python splitter.py
+    
+                    ---> Training   
+                   |                
+     splitter -----|                
+                   |                
+                    ---> Testing    
+    
+    Python Program for Dividing Dataset into Training Data and Testing Data
+    Enter the csv or xlsx file : 
+
+and enter the file name and extension, e.g. data.xlsx or data.csv
+
+The code will automatically split the data into the default value of 80% 
+training data and 20% testing data. 
+
+Optionally, for custom value of percentage, user can specify the desired 
+percentage of training data by using additional argument when running the code:
+
+    > python splitter.py --percent 70
+
+where the value of percentage can vary from 0 to 100. After that, the process 
+continues the same as before. This will split the data into a custom value 
+of 70% training data and 30% testing data.
+
+The data will be generated into two new files:
+data_training.xlsx and  data_testing.xlsx or
+data_training.csv  and  data_testing.csv
+and the generated files can be used in a Neural Network process.
+
+Background:
+This is by no means a novel Python code for splitting table for Neural Network 
+Modelling purpose. Author is sure that there are dedicated library or more 
+advanced code out there for this purpose. It started out as a research 
+capacity on Neural Network and it just make sense to implement the coding 
+knowledge. The Author hope that this would help. 
+
+================================================================================
+GNU General Public License 2.0 (Soon) Proprietary
+-fn
