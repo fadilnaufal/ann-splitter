@@ -28,7 +28,7 @@ environment, and parameter. Before using the code, user have to install
 pre-requisite libraries: pandas, openpyxl, pydot, scikit-learn, tensorflow, 
 numpy, matplotlib, tabulate, and colorama.
 
-To install these libraries at once, execute the command on 
+To install these libraries at once using pip, execute the command on 
 Windows Command Prompt (cmd) or Linux / MacOS Terminal :
 
     > pip install pandas openpyxl pydot scikit-learn tensorflow numpy matplotlib tabulate colorama
